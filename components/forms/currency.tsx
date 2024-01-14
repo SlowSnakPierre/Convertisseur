@@ -174,7 +174,7 @@ const CurrencyForm = () => {
                                             </FormControl>
                                             <SelectContent>
                                                 {availableCurrencies.map((currency) => (
-                                                    <SelectItem value={currency[0]}>
+                                                    <SelectItem key={currency[0]} value={currency[0]}>
                                                         <div className="flex gap-1">
                                                             <Flag code={currency[2]} style={{
                                                                 width: "1.5rem"
@@ -210,7 +210,7 @@ const CurrencyForm = () => {
                                             </FormControl>
                                             <SelectContent>
                                                 {availableCurrencies.map((currency) => (
-                                                    <SelectItem value={currency[0]}>
+                                                    <SelectItem key={currency[0]} value={currency[0]}>
                                                         <div className="flex gap-1">
                                                             <Flag code={currency[2]} style={{
                                                                 width: "1.5rem"
