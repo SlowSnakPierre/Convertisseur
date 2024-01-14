@@ -62,7 +62,7 @@ const CurrencyForm = () => {
         defaultValues: {
             from: "EUR",
             to: "USD",
-            amount: "1,00",
+            amount: "1",
         },
     });
 
@@ -92,7 +92,7 @@ const CurrencyForm = () => {
             form.reset(
                 {
                     ...values,
-                    amount: parseFloat(values.amount).toLocaleString(undefined, {
+                    amount: parseFloat(values.amount.replace(",", ".")).toLocaleString(undefined, {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2
                     }),
