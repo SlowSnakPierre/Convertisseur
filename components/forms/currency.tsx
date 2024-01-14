@@ -39,6 +39,14 @@ import { useState, useEffect } from "react";
 import Flag from "react-world-flags";
 import { ArrowRightLeft } from "lucide-react";
 
+type ConversionResult = {
+    amount: number;
+    from: string;
+    to: string;
+    result: number;
+    rate: number;
+};
+
 const formSchema = zod.object({
     from: zod.string().nonempty("Please select a currency"),
     to: zod.string().nonempty("Please select a currency"),
@@ -47,7 +55,7 @@ const formSchema = zod.object({
 
 const CurrencyForm = () => {
     const [availableCurrencies, setAvailableCurrencies] = useState([]);
-    const [conversionResult, setConversionResult] = useState(null);
+    const [conversionResult, setConversionResult] = useState<ConversionResult | null>(null);
 
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -143,7 +151,7 @@ const CurrencyForm = () => {
                                                 style={{
                                                     width: "10rem"
                                                 }}
-                                                value={field.value.toLocaleString(undefined, {
+                                                value={Number(field.value).toLocaleString(undefined, {
                                                     minimumFractionDigits: 2,
                                                     maximumFractionDigits: 2
                                                 })}
