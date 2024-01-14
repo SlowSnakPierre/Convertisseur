@@ -151,7 +151,7 @@ const CurrencyForm = () => {
                                                 style={{
                                                     width: "10rem"
                                                 }}
-                                                value={Number(field.value).toLocaleString(undefined, {
+                                                value={Number(field.value.replace(",", ".")).toLocaleString(undefined, {
                                                     minimumFractionDigits: 2,
                                                     maximumFractionDigits: 2
                                                 })}
