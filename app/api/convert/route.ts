@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     try {
         const { from, to, amount } = await req.json();
 
-        const newAmount = parseFloat(amount);
+        const newAmount = parseFloat(amount.replace(",", "."));
 
         const url = `${process.env.EXCHANGE_RATE_API_URL}/${process.env.EXCHANGE_RATE_API_KEY}/pair/${from}/${to}/${newAmount}`;
 
