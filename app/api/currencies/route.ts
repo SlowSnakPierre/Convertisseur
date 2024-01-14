@@ -11,7 +11,7 @@ export async function GET(req: Request) {
     try {
         const url = `${process.env.EXCHANGE_RATE_API_URL}/${process.env.EXCHANGE_RATE_API_KEY}/codes`;
 
-        let data = null;
+        let data: Record<string, any> | null = null;
         let error = null;
 
         await axios.get(url).then((response) => {
@@ -25,7 +25,7 @@ export async function GET(req: Request) {
             return new NextResponse("Internal Error", { status: 500 });
         }
 
-        const finalData = data["supported_codes"].map((item: string) => {
+        const finalData = (data["supported_codes"] as string[]).map((item: string) => {
             return [item[0], item[1], remapFlag(item[0])];
         });
 
