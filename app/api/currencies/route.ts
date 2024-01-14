@@ -11,7 +11,7 @@ export async function GET(req: Request) {
     try {
         const url = `${process.env.EXCHANGE_RATE_API_URL}/${process.env.EXCHANGE_RATE_API_KEY}/codes`;
 
-        let data: Record<string, any> | null = null;
+        let data = null;
         let error = null;
 
         await axios.get(url).then((response) => {
