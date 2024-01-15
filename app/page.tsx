@@ -1,3 +1,6 @@
+import type { Metadata } from 'next'
+import Icon from '@/assets/images/icon.svg'
+
 import {
   Tabs,
   TabsContent,
@@ -7,6 +10,11 @@ import {
 
 import CurrencyForm from '@/components/forms/currency'
 import MetricsForm from '@/components/forms/metrics'
+
+export const metadata: Metadata = {
+  title: 'Merge',
+  icons: [{ rel: 'icon', url: Icon.src }]
+}
 
 export default function Home() {
   return (

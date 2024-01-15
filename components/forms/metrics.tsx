@@ -35,7 +35,7 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import Flag from "react-world-flags";
 import { ArrowRightLeft } from "lucide-react";
-import { FormatNumber } from "@/lib/formatNumbers";
+import { FormatNumber } from "@/components/formatNumbers";
 
 type ConversionResult = {
     amount: number;
