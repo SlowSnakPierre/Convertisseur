@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/tabs'
 
 import CurrencyForm from '@/components/forms/currency'
-import MetricsForm from '@/components/forms/metrics'
+import LengthForm from '@/components/forms/lenght'
 
 export const metadata: Metadata = {
   title: 'Merge',
@@ -22,13 +22,13 @@ export default function Home() {
       <Tabs defaultValue="currency">
         <TabsList className="grid w-full grid-cols-2 bg-zinc-200">
           <TabsTrigger value="currency">Devises</TabsTrigger>
-          <TabsTrigger value="metrics">Unités Métriques</TabsTrigger>
+          <TabsTrigger value="length">Longueur</TabsTrigger>
         </TabsList>
         <TabsContent value="currency" className='w-[60rem]'>
           <CurrencyForm />
         </TabsContent>
-        <TabsContent value="metrics" className='w-[60rem]'>
-          <MetricsForm />
+        <TabsContent value="length" className='w-[60rem]'>
+          <LengthForm />
         </TabsContent>
       </Tabs>
     </main>

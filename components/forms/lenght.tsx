@@ -112,7 +112,7 @@ const MetricsForm = () => {
     return (
         <Card className="shadow-2xl">
             <CardHeader>
-                <CardTitle>Convertisseur Métrique</CardTitle>
+                <CardTitle>Convertisseur de Longueur</CardTitle>
                 <CardDescription>Nous utilisons les taux fournis par des wikis.</CardDescription>
             </CardHeader>
             <CardContent>

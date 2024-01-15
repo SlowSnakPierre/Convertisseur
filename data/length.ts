@@ -1,4 +1,4 @@
-export const metrics = new Map<string, number>([
+export const length = new Map<string, number>([
     ["Mètre(s)", 1],
     ["Kilomètre(s)", 1000],
     ["Centimètre(s)", 0.01],

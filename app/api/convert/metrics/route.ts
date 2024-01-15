@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { metrics } from "@/data/metrics";
+import { length } from "@/data/length";
 
 import axios from "axios";
 import qs from "query-string";
@@ -10,11 +10,11 @@ export async function POST(req: Request) {
 
         const newAmount = parseFloat(amount.replace(",", "."));
 
-        const fromValue = metrics.get(from);
-        const toValue = metrics.get(to);
+        const fromValue = length.get(from);
+        const toValue = length.get(to);
 
         if (!fromValue || !toValue) {
-            return new NextResponse("Invalid metrics", { status: 400 });
+            return new NextResponse("Invalid length", { status: 400 });
         }
 
         const rate = fromValue / toValue;
