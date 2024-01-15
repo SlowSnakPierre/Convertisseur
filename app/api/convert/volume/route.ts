@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { length } from "@/data/length";
+import { volume } from "@/data/volume";
 
 import axios from "axios";
 import qs from "query-string";
@@ -10,11 +10,11 @@ export async function POST(req: Request) {
 
         const newAmount = parseFloat(amount.replace(",", "."));
 
-        const fromValue = length.get(from);
-        const toValue = length.get(to);
+        const fromValue = volume.get(from);
+        const toValue = volume.get(to);
 
         if (!fromValue || !toValue) {
-            return new NextResponse("Invalid length", { status: 400 });
+            return new NextResponse("Invalid volume", { status: 400 });
         }
 
         const rate = fromValue / toValue;

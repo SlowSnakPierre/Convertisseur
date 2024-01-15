@@ -10,6 +10,8 @@ import {
 
 import CurrencyForm from '@/components/forms/currency'
 import LengthForm from '@/components/forms/lenght'
+import MassForm from '@/components/forms/mass'
+import VolumeForm from '@/components/forms/volume'
 
 export const metadata: Metadata = {
   title: 'Merge',
@@ -23,12 +25,20 @@ export default function Home() {
         <TabsList className="grid w-full grid-cols-2 bg-zinc-200">
           <TabsTrigger value="currency">Devises</TabsTrigger>
           <TabsTrigger value="length">Longueurs</TabsTrigger>
+          <TabsTrigger value="mass">Masses</TabsTrigger>
+          <TabsTrigger value="volume">Volumes</TabsTrigger>
         </TabsList>
         <TabsContent value="currency" className='w-[60rem]'>
           <CurrencyForm />
         </TabsContent>
         <TabsContent value="length" className='w-[60rem]'>
           <LengthForm />
+        </TabsContent>
+        <TabsContent value="mass" className='w-[60rem]'>
+          <MassForm />
+        </TabsContent>
+        <TabsContent value="volume" className='w-[60rem]'>
+          <VolumeForm />
         </TabsContent>
       </Tabs>
     </main>

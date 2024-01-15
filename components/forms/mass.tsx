@@ -51,30 +51,30 @@ const formSchema = zod.object({
     amount: zod.string().nonempty("Please enter an amount"),
 });
 
-const LengthForm = () => {
-    const [availableLength, setAvailableLength] = useState([]);
+const MassForm = () => {
+    const [availableMass, setAvailableMass] = useState([]);
     const [conversionResult, setConversionResult] = useState<ConversionResult | null>(null);
 
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            from: "Mètre(s)",
-            to: "Kilomètre(s)",
+            from: "Gramme(s)",
+            to: "Kilogramme(s)",
             amount: "1",
         },
     });
 
     useEffect(() => {
-        const fetchAvailableLength = async () => {
+        const fetchAvailableMass = async () => {
             try {
-                const response = await axios.get("/api/length");
-                setAvailableLength(response.data);
+                const response = await axios.get("/api/mass");
+                setAvailableMass(response.data);
             } catch (error) {
                 console.log(error);
             }
         };
 
-        fetchAvailableLength();
+        fetchAvailableMass();
     }, []);
 
     const isLoading = form.formState.isSubmitting;
@@ -82,7 +82,7 @@ const LengthForm = () => {
     const onSubmit = async (values: zod.infer<typeof formSchema>) => {
         try {
             const url = qs.stringifyUrl({
-                url: "/api/convert/length",
+                url: "/api/convert/mass",
             });
             const resp = await axios.post(url, values);
             setConversionResult(resp.data);
@@ -166,7 +166,7 @@ const LengthForm = () => {
                                                 </SelectTrigger>
                                             </FormControl>
                                             <SelectContent>
-                                                {availableLength.map((currency) => (
+                                                {availableMass.map((currency) => (
                                                     <SelectItem key={currency} value={currency}>
                                                         <p>{currency}</p>
                                                     </SelectItem>
@@ -197,7 +197,7 @@ const LengthForm = () => {
                                                 </SelectTrigger>
                                             </FormControl>
                                             <SelectContent>
-                                                {availableLength.map((currency) => (
+                                                {availableMass.map((currency) => (
                                                     <SelectItem key={currency} value={currency}>
                                                         <p>{currency}</p>
                                                     </SelectItem>
@@ -233,4 +233,4 @@ const LengthForm = () => {
     );
 }
 
-export default LengthForm;
+export default MassForm;
