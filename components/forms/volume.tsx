@@ -58,8 +58,8 @@ const VolumeForm = () => {
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            from: "Gramme(s)",
-            to: "Kilogramme(s)",
+            from: "Litre(s)",
+            to: "Centilitre(s)",
             amount: "1",
         },
     });
@@ -112,7 +112,7 @@ const VolumeForm = () => {
     return (
         <Card className="shadow-2xl">
             <CardHeader>
-                <CardTitle>Convertisseur de Longueurs</CardTitle>
+                <CardTitle>Convertisseur de Volumes</CardTitle>
                 <CardDescription>Nous utilisons les taux fournis par des wikis.</CardDescription>
             </CardHeader>
             <CardContent>
