@@ -110,7 +110,7 @@ const MassForm = () => {
     };
 
     return (
-        <Card className="shadow-2xl">
+        <Card className="shadow-2xl dark:bg-zinc-900 dark:border-zinc-800">
             <CardHeader>
                 <CardTitle>Convertisseur de Masses</CardTitle>
                 <CardDescription>Nous utilisons les taux fournis par des wikis.</CardDescription>
@@ -125,14 +125,14 @@ const MassForm = () => {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel
-                                            className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                                            className="uppercase text-xs font-bold text-zinc-500"
                                         >
                                             Montant
                                         </FormLabel>
                                         <FormControl>
                                             <Input
                                                 disabled={isLoading}
-                                                className="focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                                                className="focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-zinc-800 dark:border-zinc-700"
                                                 style={{
                                                     width: "10rem"
                                                 }}
@@ -152,20 +152,21 @@ const MassForm = () => {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel
-                                            className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                                            className="uppercase text-xs font-bold text-zinc-500"
                                         >
                                             De
                                         </FormLabel>
                                         <Select onValueChange={field.onChange} value={field.value}>
                                             <FormControl>
                                                 <SelectTrigger
+                                                    className="focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-zinc-800 dark:border-zinc-700"
                                                     style={{
                                                         width: "20rem"
                                                     }}>
                                                     <SelectValue />
                                                 </SelectTrigger>
                                             </FormControl>
-                                            <SelectContent>
+                                            <SelectContent className="dark:bg-zinc-900 dark:border-zinc-800">
                                                 {availableMass.map((currency) => (
                                                     <SelectItem key={currency} value={currency}>
                                                         <p>{currency}</p>
@@ -176,27 +177,28 @@ const MassForm = () => {
                                     </FormItem>
                                 )}
                             />
-                            <Button type="button" variant="outline" onClick={swapValues}><ArrowRightLeft /></Button>
+                            <Button type="button" variant="outline" className="dark:bg-zinc-800" onClick={swapValues}><ArrowRightLeft /></Button>
                             <FormField
                                 control={form.control}
                                 name="to"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel
-                                            className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                                            className="uppercase text-xs font-bold text-zinc-500"
                                         >
                                             Vers
                                         </FormLabel>
                                         <Select onValueChange={field.onChange} value={field.value}>
                                             <FormControl>
                                                 <SelectTrigger
+                                                    className="focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-zinc-800 dark:border-zinc-700"
                                                     style={{
                                                         width: "20rem"
                                                     }}>
                                                     <SelectValue />
                                                 </SelectTrigger>
                                             </FormControl>
-                                            <SelectContent>
+                                            <SelectContent className="dark:bg-zinc-900 dark:border-zinc-800">
                                                 {availableMass.map((currency) => (
                                                     <SelectItem key={currency} value={currency}>
                                                         <p>{currency}</p>
@@ -209,7 +211,7 @@ const MassForm = () => {
                             />
                         </div>
                         <div className="flex items-center justify-between mt-5 flex-row-reverse transition-all">
-                            <Button type="submit" variant="default" disabled={isLoading}>
+                            <Button type="submit" variant="default" className="dark:bg-zinc-800 dark:text-white" disabled={isLoading}>
                                 Convertir
                             </Button>
                             {conversionResult && <div>

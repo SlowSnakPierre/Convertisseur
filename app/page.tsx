@@ -20,13 +20,13 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center select-none bg-zinc-100">
+    <main className="flex items-center justify-center">
       <Tabs defaultValue="currency">
-        <TabsList className="grid w-full grid-cols-4 bg-zinc-200">
-          <TabsTrigger value="currency">Devises</TabsTrigger>
-          <TabsTrigger value="length">Longueurs</TabsTrigger>
-          <TabsTrigger value="mass">Masses</TabsTrigger>
-          <TabsTrigger value="volume">Volumes</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-4 bg-zinc-200 dark:bg-zinc-900">
+          <TabsTrigger value="currency" className="dark:data-[state=active]:bg-zinc-800">Devises</TabsTrigger>
+          <TabsTrigger value="length" className="dark:data-[state=active]:bg-zinc-800">Longueurs</TabsTrigger>
+          <TabsTrigger value="mass" className="dark:data-[state=active]:bg-zinc-800">Masses</TabsTrigger>
+          <TabsTrigger value="volume" className="dark:data-[state=active]:bg-zinc-800">Volumes</TabsTrigger>
         </TabsList>
         <TabsContent value="currency" className='w-[60rem]'>
           <CurrencyForm />
