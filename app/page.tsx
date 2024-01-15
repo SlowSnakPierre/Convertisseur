@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center select-none bg-zinc-100">
       <Tabs defaultValue="currency">
-        <TabsList className="grid w-full grid-cols-2 bg-zinc-200">
+        <TabsList className="grid w-full grid-cols-4 bg-zinc-200">
           <TabsTrigger value="currency">Devises</TabsTrigger>
           <TabsTrigger value="length">Longueurs</TabsTrigger>
           <TabsTrigger value="mass">Masses</TabsTrigger>
