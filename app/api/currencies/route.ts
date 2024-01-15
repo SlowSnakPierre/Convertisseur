@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 
 import axios from "axios";
-import qs from "query-string";
 
 function remapFlag(str: string) {
     return str.substring(0, 2);

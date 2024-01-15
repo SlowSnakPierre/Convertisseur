@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 
 import axios from "axios";
-import qs from "query-string";
 
 export async function POST(req: Request) {
     try {

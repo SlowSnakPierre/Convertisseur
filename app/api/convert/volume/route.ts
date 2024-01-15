@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 import { volume } from "@/data/volume";
 
-import axios from "axios";
-import qs from "query-string";
-
 export async function POST(req: Request) {
     try {
         const { from, to, amount } = await req.json();
