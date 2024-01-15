@@ -46,35 +46,35 @@ type ConversionResult = {
 };
 
 const formSchema = zod.object({
-    from: zod.string().nonempty("Please select a currency"),
-    to: zod.string().nonempty("Please select a currency"),
+    from: zod.string().nonempty("Please select a unit"),
+    to: zod.string().nonempty("Please select a unit"),
     amount: zod.string().nonempty("Please enter an amount"),
 });
 
-const CurrencyForm = () => {
-    const [availableCurrencies, setAvailableCurrencies] = useState([]);
+const MetricsForm = () => {
+    const [availableMetrics, setAvailableMetrics] = useState([]);
     const [conversionResult, setConversionResult] = useState<ConversionResult | null>(null);
 
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            from: "EUR",
-            to: "USD",
+            from: "Mètre(s)",
+            to: "Kilomètre(s)",
             amount: "1",
         },
     });
 
     useEffect(() => {
-        const fetchAvailableCurrencies = async () => {
+        const fetchAvailableMetrics = async () => {
             try {
-                const response = await axios.get("/api/currencies");
-                setAvailableCurrencies(response.data);
+                const response = await axios.get("/api/metrics");
+                setAvailableMetrics(response.data);
             } catch (error) {
                 console.log(error);
             }
         };
 
-        fetchAvailableCurrencies();
+        fetchAvailableMetrics();
     }, []);
 
     const isLoading = form.formState.isSubmitting;
@@ -82,7 +82,7 @@ const CurrencyForm = () => {
     const onSubmit = async (values: zod.infer<typeof formSchema>) => {
         try {
             const url = qs.stringifyUrl({
-                url: "/api/convert/currency",
+                url: "/api/convert/metrics",
             });
             const resp = await axios.post(url, values);
             setConversionResult(resp.data);
@@ -112,8 +112,8 @@ const CurrencyForm = () => {
     return (
         <Card className="shadow-2xl">
             <CardHeader>
-                <CardTitle>Convertisseur de devises</CardTitle>
-                <CardDescription>Nous utilisons le taux de marché moyen pour notre convertisseur.</CardDescription>
+                <CardTitle>Convertisseur Métrique</CardTitle>
+                <CardDescription>Nous utilisons les taux fournis par des wikis.</CardDescription>
             </CardHeader>
             <CardContent>
                 <Form {...form}>
@@ -166,14 +166,9 @@ const CurrencyForm = () => {
                                                 </SelectTrigger>
                                             </FormControl>
                                             <SelectContent>
-                                                {availableCurrencies.map((currency) => (
-                                                    <SelectItem key={currency[0]} value={currency[0]}>
-                                                        <div className="flex gap-1">
-                                                            <Flag code={currency[2]} style={{
-                                                                width: "1.5rem"
-                                                            }} />
-                                                            <p>{currency[0]} - {currency[1]}</p>
-                                                        </div>
+                                                {availableMetrics.map((currency) => (
+                                                    <SelectItem key={currency} value={currency}>
+                                                        <p>{currency}</p>
                                                     </SelectItem>
                                                 ))}
                                             </SelectContent>
@@ -202,14 +197,9 @@ const CurrencyForm = () => {
                                                 </SelectTrigger>
                                             </FormControl>
                                             <SelectContent>
-                                                {availableCurrencies.map((currency) => (
-                                                    <SelectItem key={currency[0]} value={currency[0]}>
-                                                        <div className="flex gap-1">
-                                                            <Flag code={currency[2]} style={{
-                                                                width: "1.5rem"
-                                                            }} />
-                                                            <p>{currency[0]} - {currency[1]}</p>
-                                                        </div>
+                                                {availableMetrics.map((currency) => (
+                                                    <SelectItem key={currency} value={currency}>
+                                                        <p>{currency}</p>
                                                     </SelectItem>
                                                 ))}
                                             </SelectContent>
@@ -243,4 +233,4 @@ const CurrencyForm = () => {
     );
 }
 
-export default CurrencyForm;
+export default MetricsForm;
