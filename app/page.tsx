@@ -22,7 +22,7 @@ export default function Home() {
       <Tabs defaultValue="currency">
         <TabsList className="grid w-full grid-cols-2 bg-zinc-200">
           <TabsTrigger value="currency">Devises</TabsTrigger>
-          <TabsTrigger value="length">Longueur</TabsTrigger>
+          <TabsTrigger value="length">Longueurs</TabsTrigger>
         </TabsList>
         <TabsContent value="currency" className='w-[60rem]'>
           <CurrencyForm />
