@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(
-        "select-none dark:bg-zinc-800 bg-zinc-100 overflow-hidden",
+        "select-none dark:bg-zinc-800 bg-zinc-100 overflow-hidden transition-colors",
         inter.className
       )}>
         <ThemeProvider
